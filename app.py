@@ -1,4 +1,5 @@
 from functools import cached_property, cache
+from flask import Flask
 
 
 class Team:
@@ -80,12 +81,9 @@ class Team:
         return ans[1]
 
 
-if __name__ == '__main__':
-    result = {}
-    for n in [2208928, 2209237, 2221741, 2209492, 2200717, 2200605, 2218651]:
-        team = Team(n)
-        result[n] = team.award
-        # team.show_bbox()
-        print(f"{n} -> {Team(n).award}")
+app = Flask("MCM utils")
 
-    print(result)
+
+@app.get("/")
+def main_page():
+    return "<p> hello </p>"
