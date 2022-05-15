@@ -27,7 +27,7 @@ class Team:
     @cached_property
     def image(self):
         import cv2
-        filename = f"{self.number}.png"
+        filename = f"cache/{self.number}.png"
         image = cv2.imread(filename)
         if image is not None:
             return image[300:-150]
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     for n in [2208928, 2209237, 2221741, 2209492, 2200717, 2200605, 2218651]:
         team = Team(n)
         result[n] = team.award
-        team.show_bbox()
+        # team.show_bbox()
         print(f"{n} -> {Team(n).award}")
 
     print(result)
