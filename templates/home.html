@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MCM query homepage</title>
+    <link type="text/css" rel="stylesheet" href="/static/center.css">
+    <style>
+
+        h1 {
+            font-family: sans-serif;
+            letter-spacing: 0.1em;
+            color: #646464;
+            opacity: 20%;
+        }
+
+        h2 {
+            font-family: monospace;
+            color: firebrick;
+            letter-spacing: 0.5em;
+        }
+
+        #search, #go {
+            outline: none;
+            margin: 5pt 10pt;
+            background-color: transparent;
+            border-radius: 3pt;
+            font-size: 1.5em;
+            transition: all 250ms;
+            padding: 10pt;
+        }
+
+        #go {
+            border: 1.5pt solid firebrick;
+            color: firebrick;
+        }
+
+        #go:hover {
+            color: white;
+            background-color: firebrick;
+        }
+
+        #search {
+            border: 1.5pt solid #646464;
+            color: black;
+            opacity: 20%;
+        }
+
+        #search:hover {
+            border-color: firebrick;
+            opacity: 100%;
+        }
+
+        #hint {
+            font-family: sans-serif;
+            color: firebrick;
+        }
+
+    </style>
+</head>
+<script>
+    function search() {
+        document.getElementById("hint").textContent = "正在处理中（初次查询约耗时<10s）"
+        window.location.href = "/query/" + document.getElementById("search").value
+    }
+</script>
+<body>
+<div id="center">
+    <h1> 查询你的队伍的获奖情况 </h1>
+    <h2> TYPE YOUR NUMBER HERE </h2>
+    <br>
+    <label for="search"></label>
+    <input type="text" id="search">
+    <button id="go" onclick="search()"> GO</button>
+    <p id="hint"></p>
+</div>
+</body>
+</html>
+<script>
+    document.getElementById("search").addEventListener("keydown", event => event.key === "Enter" ? search() : null)
+</script>

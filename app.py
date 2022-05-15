@@ -1,5 +1,5 @@
 from functools import cached_property, cache
-from flask import Flask
+from flask import Flask, render_template
 
 
 class Team:
@@ -85,5 +85,10 @@ app = Flask("MCM utils")
 
 
 @app.get("/")
-def main_page():
-    return "<p> hello </p>"
+def homepage():
+    return render_template("home.html")
+
+
+@app.get("/query/<int:number>")
+def query(number):
+    return render_template("query.html", number=number, award=Team(number).award)
