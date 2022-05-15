@@ -1,5 +1,9 @@
 from functools import cached_property, cache
 from flask import Flask, render_template
+import os
+
+if not os.path.isdir("cache"):
+    os.mkdir("cache")
 
 
 class Team:
