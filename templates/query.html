@@ -6,13 +6,27 @@
     <link type="text/css" rel="stylesheet" href="/static/center.css">
     <style>
         div {
-            font-size: 4em;
             font-weight: bolder;
+            margin: 0.5em;
+            line-height: 0.5em;
+        }
+
+        #hint {
+            font-family: sans-serif;
+            letter-spacing: 1em;
+        }
+
+        #award {
+            font-size: 4em;
             color: firebrick;
         }
+
     </style>
 </head>
 <body>
-<div id="center"> {{ award }} </div>
+<div id="center">
+    <p id="hint"> YOUR AWARD IS </p>
+    <p id="award"> {{ award }} </p>
+</div>
 </body>
 </html>
